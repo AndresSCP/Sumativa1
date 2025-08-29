@@ -1,2 +1,1 @@
-# Sumativa1
-Trabajo evaluacion sumativa 1 grupo 10
+# Sumativa 1
