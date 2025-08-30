@@ -381,3 +381,89 @@ img.logo{ max-width: 70px; }
   }
 }
 
+
+
+
+/* Tarjetas vinos */
+
+
+.bloques-categorias {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.categoria {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
+}
+
+.categoria img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    
+}
+
+/* .piefoto{
+    position: relative;
+    top: 20%;
+    bottom: auto;
+} */
+
+/* hace que el precio y el botón se alineen siempre al fondo */
+
+.categoria h5{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--vino, #7b1e1e);
+    margin: 12px 0 6px; 
+}
+
+.categoria h4 {
+    font-size: 1rem;
+    line-height: 1.3;
+    margin: 8px 0 0;  
+}
+
+
+.categoria .btn-comprar {
+  margin-top: auto; /* empuja el botón hacia abajo */
+}
+
+/* Botón estilo e-commerce */
+.btn-comprar {
+  margin-top: 14px;
+  padding: 14px 20px;
+  width: 100%;                     /* ancho completo de la tarjeta */
+  background: var(--vino, #7b1e1e);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;        /* todo en mayúsculas */
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-comprar:hover {
+  background: #5c1515;              /* más oscuro */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-comprar:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
