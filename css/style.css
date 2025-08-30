@@ -328,3 +328,56 @@ img.logo{ max-width: 70px; }
   }
 }
 
+/* ====== COMPRAR PAGE ====== */
+.comprar-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 80vh;
+}
+
+.opcion {
+  position: relative;
+  overflow: hidden;
+}
+
+.opcion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.opcion .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.opcion:hover img {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
+
+.opcion:hover .overlay {
+  opacity: 1;
+}
+
+/* RESPONSIVIDAD COMPRAR */
+@media (max-width: 768px) {
+  .comprar-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .opcion .overlay {
+    font-size: 2rem;
+  }
+}
+
