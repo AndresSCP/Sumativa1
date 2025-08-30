@@ -14,32 +14,11 @@
     grid-template-columns: minmax(0, 1fr);
 }
 
-h1{
-    font-size: 65px;
-    line-height: 64px;
-    color: #222;
-}
-
-h2{
-    font-size: 46px;
-    line-height: 54px;
-    color: #222;
-}
-h3{
-    font-size: 35px;
-    line-height: 54px;
-    color: #9d4b4b;
-}
-
-h4{
-    font-size: 20px;
-    color: #553636;
-}
-
-h6{
-    font-weight: 700;
-    font-size: 12px;
-}
+h1{ font-size: 65px; line-height: 64px; color: #222; }
+h2{ font-size: 46px; line-height: 54px; color: #222; }
+h3{ font-size: 35px; line-height: 54px; color: #9d4b4b; }
+h4{ font-size: 20px; color: #553636; }
+h6{ font-weight: 700; font-size: 12px; }
 
 p{
     font-size: 16px;
@@ -47,12 +26,8 @@ p{
     margin: 15px 0 20px 0;
 }
 
-.section-p1 {
-    padding: 40px 80px;
-}
-.section-m1 {
-    margin: 40px 0;
-}
+.section-p1 { padding: 40px 80px; }
+.section-m1 { margin: 40px 0; }
 
 body{
     width: 100%;
@@ -60,29 +35,27 @@ body{
     margin: 0;
 }
 
-/* estilo para el segmetno header*/
+/* HEADER */
 #header{
     display: flex;
-    position: relative;
     align-items: center;
     justify-content: space-between;
     padding: 10px 80px;
     background: #571e1e;
-    box-shadow: 0 5px 15px rgb(0, 0, 0, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
     z-index: 999;
-    position: sicky;
+    position: sticky;
     top: 0;
     left: 0;
 }
-img.logo{
-    max-width: 70px;
-    max-height: auto;
-}
+
+img.logo{ max-width: 70px; }
 
 #navbar{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: max-height 0.4s ease-in-out;
 }
 
 #navbar li{
@@ -115,7 +88,7 @@ img.logo{
     left: 13px;
 }
 
-/*banner principal o hero section*/
+/* HERO */
 #hero{
     background-image: url("../assets/herotry9.jpg");
     background-size: cover;
@@ -123,22 +96,17 @@ img.logo{
     background-attachment: fixed;
     min-height: 60vh;
     width: 100%;
-    background-position: top 300% right 0%;
+    background-position: center;
     padding: 0 80px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    text-align: left;
 }
 
-#hero h4{
-    padding-bottom: 15px;
-    padding-top: 15px;
-}
-
-#hero h1{
-    color: #601212;
-}
+#hero h4{ padding: 15px 0; }
+#hero h1{ color: #601212; }
 
 #hero button{
     background-image: url(../assets/button.png);
@@ -152,7 +120,7 @@ img.logo{
     font-style: italic;
 }
 
-/*estilo para el footer */
+/* FOOTER */
 .footer{
     display: flex;
     margin-top: auto;
@@ -161,7 +129,202 @@ img.logo{
     padding: 10px 80px;
     background: #571e1e;
 }
+.footer p{ color:antiquewhite; }
 
-.footer p{
-    color:antiquewhite;
+/* ========= MEDIA QUERIES ========= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    h1 { font-size: 48px; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 28px; }
+    p { font-size: 15px; }
+
+    #header { padding: 10px 40px; }
+    #hero { padding: 0 40px; background-attachment: scroll; }
 }
+
+/* Móviles */
+@media (max-width: 768px) {
+    h1 { font-size: 36px; line-height: 44px; }
+    h2 { font-size: 28px; line-height: 36px; }
+    h3 { font-size: 22px; line-height: 30px; }
+    p { font-size: 14px; }
+
+    #header { padding: 10px 20px; }
+
+    /* Navbar móvil */
+    #navbar {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #571e1e;
+        width: 200px;
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #navbar.open { max-height: 300px; }
+
+    #navbar li { width: 100%; padding: 10px 0; }
+    #navbar li a { font-size: 18px; padding: 10px; }
+
+    /* Botón hamburguesa */
+    .menu-toggle {
+        display: block;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+/* Ocultar hamburguesa en escritorio */
+.menu-toggle { display: none; }
+
+/* FORMULARIO DE CONTACTO */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 20px auto;
+  gap: 12px;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #601212;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.contact-form button {
+  background: #601212;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #9d4b4b;
+}
+
+/* FORMULARIO DE LOGIN */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto;
+  gap: 12px;
+}
+
+.login-form label {
+  font-weight: 600;
+  color: #601212;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.login-form button {
+  background: #601212;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.login-form button:hover {
+  background: #9d4b4b;
+}
+
+.login-form .registro {
+  text-align: center;
+  font-size: 14px;
+}
+.login-form .registro a {
+  color: #601212;
+  font-weight: bold;
+  text-decoration: none;
+}
+.login-form .registro a:hover {
+  text-decoration: underline;
+}
+
+/* CARDS SOBRE NOSOTROS */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 22px;
+  color: #601212;
+  padding: 10px 15px 0 15px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #465b52;
+  padding: 10px 15px 15px 15px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE CARDS */
+@media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 200px;
+  }
+}
+
