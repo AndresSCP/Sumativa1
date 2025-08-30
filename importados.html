@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ImpoVinos</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ImpoVinos - Importados</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="site">
-        <section id="header">
-            <a href="index.html"><img src="assets/logovino.webp" class="logo" alt="logo"></a>
-            <div>
-                <ul id="navbar">
-                    <li><a class="active"href="index.html">Inicio</a></li>
-                    <li><a href="nacionales.html">Nacionales</a></li>
-                    <li><a href="importados.html">Importados</a></li>
-                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="ingresa.html">Ingresa</a></li>
-                </ul>
-            </div>
-        </section>
-        <section>
-            <p>Aqui debemos hacer las tarjetas de vinos importados</p>
-        </section>
-        <footer>
-            <div class="footer">
-                <p> © Todos los derechos reservados, Grupo 10 Semana 3</p>
-            </div>
-        </footer>
-    </div>
+  <div class="site">
+    <section id="header">
+      <a href="index.html">
+        <img src="assets/logovino.webp" class="logo" alt="logo">
+      </a>
+      <!-- Botón hamburguesa -->
+      <span class="menu-toggle" onclick="document.getElementById('navbar').classList.toggle('open')">&#9776;</span>
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nacionales.html">Nacionales</a></li>
+          <li><a class="active" href="importados.html">Importados</a></li>
+          <li><a href="nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="ingresa.html">Ingresa</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-p1">
+      <h2>Vinos Importados</h2>
+      <p>Aquí debemos hacer las tarjetas de vinos importados</p>
+    </section>
+
+    <footer>
+      <div class="footer">
+        <p>© Todos los derechos reservados, Grupo 10 Semana 3</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
