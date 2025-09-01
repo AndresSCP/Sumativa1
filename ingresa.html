@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ImpoVinos - Ingreso</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Estilo para el botón de admin (discreto) */
+    .admin-btn {
+      margin-top: 20px;
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 0.9em;
+      text-decoration: underline;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      opacity: 0.6;
+    }
+
+    .admin-btn:hover {
+      opacity: 1;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
   <div class="site">
@@ -42,13 +62,14 @@
         <input type="password" id="clave" name="clave" required>
 
         <button type="submit">Ingresar</button>
-       
-       
 
         <!-- Nueva opción de recuperar contraseña -->
         <p class="recuperar"><a href="recuperar.html">¿Olvidaste tu contraseña?</a></p>
 
         <p class="registro">¿No tienes cuenta? <a href="registro.html">Crear cuenta</a></p>
+
+        <!-- Botón "escondido" de admin -->
+        <a href="admin.html" class="admin-btn">Ingresar como administrador</a>
       </form>
     </section>
 
