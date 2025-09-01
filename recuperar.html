@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ImpoVinos - Recuperar contraseña</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ImpoVinos - Recuperar Contraseña</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="site">
     <section id="header">
       <a href="index.html">
-        <img src="assets/logovino.webp" class="logo" alt="logo"/>
+        <img src="assets/logovino.webp" class="logo" alt="logo">
       </a>
       <span class="menu-toggle" onclick="document.getElementById('navbar').classList.toggle('open')">&#9776;</span>
       <div>
@@ -20,51 +20,25 @@
           <li><a href="importados.html">Importados</a></li>
           <li><a href="nosotros.html">Sobre Nosotros</a></li>
           <li><a href="contacto.html">Contacto</a></li>
-          <li><a href="ingresa.html">Ingresa</a></li>
+          <li><a class="active" href="ingresa.html">Ingresa</a></li>
         </ul>
       </div>
     </section>
 
     <section class="section-p1">
-      <h2>Recuperar contraseña</h2>
-      <p>Ingresa tu correo para recibir un código o enlace de recuperación. Luego podrás restablecer tu contraseña.</p>
+      <h2>Recuperar Contraseña</h2>
+      <p>Ingresa tu correo y te enviaremos un enlace para restablecer tu contraseña.</p>
 
-      <div class="recover-container">
+      <form id="recuperarForm" class="login-form">
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="correo" required>
 
-        <!-- Paso 1: pedir código/enlace -->
-        <form id="step-request" class="login-form" onsubmit="handleRequest(event)">
-          <label for="email-request">Correo</label>
-          <input type="email" id="email-request" name="email" required placeholder="tu@correo.com"/>
+        <!-- Mensaje de éxito/error -->
+        <p id="mensaje" style="display:none;"></p>
 
-          <p class="helper">Te enviaremos un código de verificación a tu correo.</p>
-          <button type="submit">Enviar código</button>
-
-          <p class="registro">¿Recordaste tu contraseña? <a href="ingresa.html">Inicia sesión</a></p>
-        </form>
-
-        <!-- Paso 2: restablecer contraseña -->
-        <form id="step-reset" class="login-form" onsubmit="handleReset(event)" style="display:none;">
-          <label for="email-reset">Correo</label>
-          <input type="email" id="email-reset" name="email-reset" required placeholder="tu@correo.com"/>
-
-          <label for="code">Código de verificación</label>
-          <input type="text" id="code" name="code" minlength="4" maxlength="8" required placeholder="Código recibido"/>
-
-          <label for="newpass">Nueva contraseña</label>
-          <input type="password" id="newpass" name="newpass" required minlength="6" placeholder="Mínimo 6 caracteres"/>
-
-          <label for="confpass">Confirmar contraseña</label>
-          <input type="password" id="confpass" name="confpass" required minlength="6" placeholder="Repite la contraseña"/>
-
-          <div id="reset-error" style="color:#b00020; margin-bottom:8px; display:none;"></div>
-
-          <button type="submit">Restablecer contraseña</button>
-
-          <p class="registro"><a href="#" onclick="showStep('request'); return false;">Volver</a></p>
-        </form>
-
-        <div id="message" style="display:none; margin-top:12px;"></div>
-      </div>
+        <button type="submit">Enviar enlace</button>
+        <p class="registro"><a href="ingresa.html">Volver al inicio de sesión</a></p>
+      </form>
     </section>
 
     <footer>
@@ -75,92 +49,28 @@
   </div>
 
   <script>
-    // Simulación cliente: no hay backend aquí. Reemplaza llamadas por fetch() a tu API si la tienes.
-    function showStep(step) {
-      document.getElementById('message').style.display = 'none';
-      if (step === 'request') {
-        document.getElementById('step-request').style.display = '';
-        document.getElementById('step-reset').style.display = 'none';
-      } else if (step === 'reset') {
-        document.getElementById('step-request').style.display = 'none';
-        document.getElementById('step-reset').style.display = '';
+    const form = document.getElementById("recuperarForm");
+    const mensaje = document.getElementById("mensaje");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const correo = document.getElementById("correo").value;
+
+      if(correo) {
+        mensaje.style.color = "green";
+        mensaje.innerHTML = "✅ Enlace de recuperación enviado a tu correo.";
+        mensaje.style.display = "block";
+
+        // Opcional: redirigir al login después de 2 segundos
+        setTimeout(function() {
+          window.location.href = "ingresa.html";
+        }, 2000);
+      } else {
+        mensaje.style.color = "red";
+        mensaje.innerHTML = "⚠️ Por favor ingresa un correo válido.";
+        mensaje.style.display = "block";
       }
-    }
-
-    function handleRequest(e) {
-      e.preventDefault();
-      const email = document.getElementById('email-request').value.trim();
-      if (!email) return;
-
-      // Aquí normalmente harías una llamada al backend para enviar el correo:
-      // fetch('/api/recuperar', { method: 'POST', body: JSON.stringify({ email })})
-      //   .then(...)
-
-      // Simulamos envío con mensaje:
-      const msg = document.getElementById('message');
-      msg.style.display = 'block';
-      msg.style.color = '#0a7b2d';
-      msg.textContent = 'Se ha enviado un código al correo ' + email + '. (Simulado)';
-      
-      // prellenar email en segundo paso y mostrarlo:
-      document.getElementById('email-reset').value = email;
-      // mostrar paso restablecer para que el usuario pegue el código simulado
-      showStep('reset');
-    }
-
-    function handleReset(e) {
-      e.preventDefault();
-      const email = document.getElementById('email-reset').value.trim();
-      const code = document.getElementById('code').value.trim();
-      const newpass = document.getElementById('newpass').value;
-      const conf = document.getElementById('confpass').value;
-      const err = document.getElementById('reset-error');
-
-      err.style.display = 'none';
-      err.textContent = '';
-
-      // Validaciones simples
-      if (!email || !code || !newpass || !conf) {
-        err.textContent = 'Completa todos los campos.';
-        err.style.display = '';
-        return;
-      }
-      if (newpass.length < 6) {
-        err.textContent = 'La contraseña debe tener al menos 6 caracteres.';
-        err.style.display = '';
-        return;
-      }
-      if (newpass !== conf) {
-        err.textContent = 'Las contraseñas no coinciden.';
-        err.style.display = '';
-        return;
-      }
-
-      // Simulación de verificación del código: en producción lo valida el servidor.
-      // Aquí aceptamos cualquier código de 4 a 8 dígitos (simulado).
-      if (code.length < 4) {
-        err.textContent = 'Código inválido.';
-        err.style.display = '';
-        return;
-      }
-
-      // Simular éxito:
-      const msg = document.getElementById('message');
-      msg.style.display = 'block';
-      msg.style.color = '#0a7b2d';
-      msg.textContent = 'Contraseña restablecida correctamente para ' + email + '. Ahora puedes iniciar sesión.';
-      
-      // Opcional: redirigir a login después de unos segundos (comenta si no quieres auto-redirect)
-      // setTimeout(()=> { window.location.href = 'ingresa.html'; }, 2200);
-      
-      // Volver a mostrar el formulario de solicitud si quieres:
-      document.getElementById('step-request').reset();
-      document.getElementById('step-reset').reset();
-      showStep('request');
-    }
-
-    // init
-    showStep('request');
+    });
   </script>
 </body>
 </html>
