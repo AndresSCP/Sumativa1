@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ImpoVinos - Ingreso</title>
+  <title>ImpoVinos - Perfil</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="site">
+    <!-- HEADER -->
     <section id="header">
       <a href="index.html" class="logo-container">
         <img src="assets/logovino.webp" class="logo" alt="logo">
@@ -20,37 +21,39 @@
         <ul id="navbar">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="nacionales.html">Nacionales</a></li>
-          <li><a href="importados.html">Importados</a></li>
+          <li><a class="active" href="importados.html">Importados</a></li>
           <li><a href="nosotros.html">Sobre Nosotros</a></li>
           <li><a href="contacto.html">Contacto</a></li>
-          <li><a class="active" href="ingresa.html">Ingresa</a></li>
+          <li><a href="ingresa.html">Ingresa</a></li>
           <li><a href="registro.html">Registrate</a></li>
         </ul>
       </div>
     </section>
 
+    <!-- PERFIL -->
     <section class="section-p1">
-      <h2>Inicia Sesión</h2>
-      <p>Accede a tu cuenta para comprar y revisar tus pedidos.</p>
+      <h2>Mi Perfil</h2>
+      <p>Bienvenido a tu perfil, aquí puedes ver tus datos.</p>
 
-      <form class="login-form">
-        <label for="correo">Correo</label>
-        <input type="email" id="correo" name="correo" required>
+      <div class="login-form">
+        <label>Nombre completo</label>
+        <input type="text" value="Juan Pérez" disabled>
 
-        <label for="clave">Contraseña</label>
-        <input type="password" id="clave" name="clave" required>
+        <label>Correo</label>
+        <input type="email" value="juanperez@email.com" disabled>
 
-        <button type="submit">Ingresar</button>
-       
-       
+        <label>Dirección</label>
+        <input type="text" value="Calle Falsa 123, Santiago" disabled>
 
-        <!-- Nueva opción de recuperar contraseña -->
-        <p class="recuperar"><a href="recuperar.html">¿Olvidaste tu contraseña?</a></p>
-
-        <p class="registro">¿No tienes cuenta? <a href="registro.html">Crear cuenta</a></p>
-      </form>
+        <label>Contraseña</label>
+        <input type="password" value="12345678" disabled>
+        <a href="modificarPerfil.html">
+        <button>Editar Datos</button>
+        </a>
+      </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
       <div class="footer">
         <p>© Todos los derechos reservados, Grupo 10 Semana 3</p>

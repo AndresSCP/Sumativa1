@@ -10,22 +10,28 @@
 </head>
 <body>
   <div class="site">
-    <section id="header" class="d-flex justify-content-between align-items-center p-2">
-      <a href="index.html">
-        <img src="assets/logovino.webp" class="logo" alt="logo"/>
+    <section id="header">
+      <a href="index.html" class="logo-container">
+        <img src="assets/logovino.webp" class="logo" alt="logo">
+        <span class="nombre-empresa">ImpoVinos</span>
       </a>
+
+      <!-- Botón hamburguesa -->
       <span class="menu-toggle" onclick="document.getElementById('navbar').classList.toggle('open')">&#9776;</span>
       <div>
-        <ul id="navbar" class="nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="nacionales.html">Nacionales</a></li>
-          <li class="nav-item"><a class="nav-link" href="importados.html">Importados</a></li>
-          <li class="nav-item"><a class="nav-link" href="nosotros.html">Sobre Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-          <li class="nav-item"><a class="nav-link active" href="perfil.html">Perfil</a></li>
+        <ul id="navbar">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nacionales.html">Nacionales</a></li>
+          <li><a href="importados.html">Importados</a></li>
+          <li><a href="nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="ingresa.html">Ingresa</a></li>
+          <li><a href="registro.html">Registrate</a></li>
+          <li><a class="active" href="perfil.html">Mi perfil</a></li>
         </ul>
       </div>
     </section>
+
 
     <section class="section-p1 container mt-4">
       <h2>Modificar Perfil</h2>
@@ -61,7 +67,7 @@
 
           <!-- Botones con Bootstrap -->
           <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <button onclick="alert('Cambios guardados!')" type="submit" class="btn btn-primary">Guardar cambios</button>
             <a href="ingresa.html" class="btn btn-secondary">Volver al login</a>
           </div>
         </form>
